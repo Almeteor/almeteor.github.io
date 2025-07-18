@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- الصفحة الرئيسية -->
   <url><loc>https://almeteor.github.io/-7/</loc></url>
-  <!-- صفحات البطاقات اللي طلعت من بحث Google -->
   <url><loc>https://almeteor.github.io/-7/kanab.html</loc></url>
   <url><loc>https://almeteor.github.io/-7/diyafah.html</loc></url>
   <url><loc>https://almeteor.github.io/-7/tables.html</loc></url>
