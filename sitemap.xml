@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://almeteor.github.io/</loc>
     <lastmod>2024-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- أضف المزيد من الصفحات هنا -->
+  
+  <!-- صفحة about.html -->
+  <url>
+    <loc>https://almeteor.github.io/about.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- صفحة contact.html -->
+  <url>
+    <loc>https://almeteor.github.io/contact.html</loc>
+    <lastmod>2024-06-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
