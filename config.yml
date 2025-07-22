@@ -1,6 +1,3 @@
 include:
-  - .htaccess
   - sitemap.xml
   - robots.txt
-plugins:
-  - jekyll-sitemap  # (اختياري) لإنشاء sitemap تلقائي إذا كنت تستخدم Jekyll
