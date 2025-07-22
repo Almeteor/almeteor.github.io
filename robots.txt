@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
 Sitemap: https://almeteor.github.io/sitemap.xml
