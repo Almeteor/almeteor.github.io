@@ -1,4 +1,4 @@
-google-site-verification: yRSQeaHeFhDl2UOi6NRZaH4wtcYdyV6d5GcYiqSbRQI
+google-site-verification=yRSQeaHeFhDl2UOi6NRZaH4wtcYdyV6d5GcYiqSbRQI
 User-agent: *
 Allow: /
 Sitemap: https://www.lamasat.store/sitemap.xml
