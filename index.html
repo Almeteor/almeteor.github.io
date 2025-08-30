@@ -118,6 +118,27 @@
       margin-top: 40px;
       user-select: none;
     }
+
+      /* أكواد معرض الصور فقط */
+    #gallery .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 صور بالعرض */
+      gap: 15px;
+      justify-items: center;
+      margin-top: 20px;
+    }
+    #gallery .gallery-container img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    #gallery .gallery-container img:hover { transform: scale(1.05); }
+
+    @media (max-width: 768px) { #gallery .gallery-container { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { #gallery .gallery-container { grid-template-columns: 1fr; } }
     @media (max-width: 768px) {
       h1 { font-size: 2rem; }
       section.service { padding: 15px; }
@@ -156,6 +177,7 @@
     <a href="#khiyam">تأجير خيام</a>
     <a href="#jalsat">تأجير جلسات شعبية</a>
     <a href="#dhiyafah">قهوجيين وصبابين</a>
+    <a href="#gallery">معرض الصور</a>
     <a href="contact.html">تواصل معنا</a>
     <a href="about.html">من نحن</a>
   </nav>
@@ -1078,7 +1100,31 @@
     transform: scale(1.2);
   }
 </style>
- 
+
+ <!-- معرض الصور -->
+<section id="gallery" class="service">
+  <h2>معرض الصور</h2>
+  <div class="gallery-container">
+   <!-- معرض الصور -->
+<section id="gallery" class="service">
+  <h2>معرض الصور</h2>
+  <div class="gallery-container">
+    <img src="https://i.postimg.cc/rmv2N0tg/IMG-20250830-WA0025.webp" alt="صورة 1" />
+    <img src="https://i.postimg.cc/2S2pXXZ1/IMG-20250704-WA0028.webp" alt="صورة 2" />
+    <img src="https://i.postimg.cc/3NgVjLhJ/IMG-20250804-WA0017.webp" alt="صورة 3" />
+    <img src="https://i.postimg.cc/SR71YJLn/IMG-20250326-WA0021.webp" alt="صورة 4" />
+    <img src="https://i.postimg.cc/C5Ym0wyS/IMG-20250628-WA0025.webp" alt="صورة 5" />
+    <img src="https://i.postimg.cc/PJ4Kr0hZ/IMG-20250628-WA0002.webp" alt="صورة 6" />
+    <img src="https://i.postimg.cc/PrS2GGSn/IMG-20250804-WA0009.webp" alt="صورة 7" />
+    <img src="https://i.postimg.cc/Cxt71Gyv/IMG-20250804-WA0007.webp" alt="صورة 8" />
+    <img src="https://i.postimg.cc/9f7pqDCc/IMG-20250804-WA0003.webp" alt="صورة 9" />
+    <img src="https://i.postimg.cc/qRcxjWNY/IMG-20250701-WA0001.webp" alt="صورة 10" />
+  </div>
+</section>
+
+  </div>
+</section>
+   
 </main>
 
 <footer>
