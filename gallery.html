@@ -65,20 +65,24 @@
 
   /* معرض الصور */
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    padding: 20px;
-  }
-  .gallery img {
-    width: 100%;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-  .gallery img:hover {
-    transform: scale(1.05);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery img {
+  max-width: 100%;     /* لا تتجاوز عرض الصورة الطبيعي */
+  height: auto;        /* يحافظ على نسبة الطول */
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
 
   /* Lightbox */
   .lightbox {
