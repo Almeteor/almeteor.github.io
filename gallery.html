@@ -3,25 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>📸 معرض صور خدماتنا</title>
+  <title>معرض الصور - حفلات ومناسبات</title>
   <style>
-    body {font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background: #fffaf0; color: #222; text-align: center;}
-    h1 {margin: 20px 0; font-size: 28px; color: #444;}
-    .section {margin: 40px auto; max-width: 1200px; padding: 0 15px;}
-    .section h2 {font-size: 22px; margin-bottom: 20px; color: #f4c542; border-bottom: 2px solid #f4c542; display: inline-block; padding-bottom: 5px;}
-    .gallery {display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;}
-    .gallery img {width: 100%; border-radius: 10px; box-shadow: 0 0 10px #ccc; transition: transform 0.3s ease; cursor: pointer;}
-    .gallery img:hover {transform: scale(1.05);}
-    .back-button {display: inline-block; margin: 20px auto; padding: 15px 30px; font-size: 20px; font-weight: bold; background: #f4c542; color: #222; border-radius: 10px; text-decoration: none; box-shadow: 0 0 10px #f4c542aa;}
-    .contact-buttons {margin: 30px 0;}
-    .contact-buttons img {width: 60px; height: 60px; margin: 10px; cursor: pointer;}
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #fdfdfd;
+      margin: 0; padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #444;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 15px 0;
+      background: #f4c542;
+      color: #222;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #f4c54299;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #d9af29;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .gallery-container img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-container img:hover {
+      transform: scale(1.05);
+    }
+    .contact-buttons {
+      margin: 30px 0;
+    }
+    .contact-buttons a img {
+      width: 60px;
+      height: 60px;
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+    .contact-buttons a:hover img {
+      transform: scale(1.2);
+    }
+    @media (max-width: 768px) {
+      .gallery-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .gallery-container { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
-  <h1>📸 معرض صور خدماتنا</h1>
+  <h1>📸 معرض الصور</h1>
 
-  <!-- أزرار التواصل -->
+  <!-- زر رجوع فوق -->
+  <a href="index.html" class="back-btn">⬅ الرجوع للصفحة الرئيسية</a>
+
+  <!-- أزرار تواصل -->
   <div class="contact-buttons">
     <a href="https://wa.me/966559534118" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب" />
@@ -31,38 +85,23 @@
     </a>
   </div>
 
-  <!-- قسم الكنب -->
-  <div class="section">
-    <h2>🛋 صور الكنب</h2>
-    <div class="gallery">
-      <img src="images/kanab1.jpg" alt="كنب 1">
-      <img src="images/kanab2.jpg" alt="كنب 2">
-      <img src="images/kanab3.jpg" alt="كنب 3">
-    </div>
+  <!-- شبكة الصور -->
+  <div class="gallery-container">
+    <img src="https://i.postimg.cc/rmv2N0tg/IMG-20250830-WA0025.webp" alt="صورة 1">
+    <img src="https://i.postimg.cc/2S2pXXZ1/IMG-20250704-WA0028.webp" alt="صورة 2">
+    <img src="https://i.postimg.cc/3NgVjLhJ/IMG-20250804-WA0017.webp" alt="صورة 3">
+    <img src="https://i.postimg.cc/SR71YJLn/IMG-20250326-WA0021.webp" alt="صورة 4">
+    <img src="https://i.postimg.cc/0NDYyh0Q/4cc93a4e-f758-438c-a304-6fb631e6abd7.jpg" alt="صورة 5">
+    <img src="https://i.postimg.cc/rm95SWb2/IMG-3034.jpg" alt="صورة 6">
+    <!-- زود صور زي ما تبغى بنفس الشكل -->
   </div>
 
-  <!-- قسم الخيام -->
-  <div class="section">
-    <h2>⛺ صور الخيام</h2>
-    <div class="gallery">
-      <img src="images/khiyam1.jpg" alt="خيام 1">
-      <img src="images/khiyam2.jpg" alt="خيام 2">
-    </div>
-  </div>
+  <!-- زر رجوع تحت -->
+  <a href="index.html" class="back-btn">⬅ الرجوع للصفحة الرئيسية</a>
 
-  <!-- قسم الطاولات -->
-  <div class="section">
-    <h2>🍽 صور الطاولات</h2>
-    <div class="gallery">
-      <img src="images/table1.jpg" alt="طاولة 1">
-      <img src="images/table2.jpg" alt="طاولة 2">
-    </div>
-  </div>
-
-  <!-- زر رجوع -->
-  <div>
-    <a href="index.html" class="back-button">⬅ رجوع للصفحة الرئيسية</a>
-  </div>
+  <footer>
+    <p>جميع الحقوق محفوظة © 2025 حفلات ومناسبات</p>
+  </footer>
 
 </body>
 </html>
