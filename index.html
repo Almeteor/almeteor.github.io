@@ -1385,7 +1385,147 @@
     📸 معرض صور خدماتنا
   </a>
 </div>
+    <!-- الأسئلة الشائعة -->
+    <section class="section faq-section" id="faq">
+      <h2>أسئلة شائعة</h2>
+      <div>
+        <h3>✔ ما هي مناطق الخدمة؟</h3>
+        <p>نغطي جميع أنحاء الرياض وجدة والشرقية الدمام (الدمام، الخبر، الجبيل) مع خدمة توصيل وتركيب مجانية.</p>
+        <h3>✔ كيف أحجز؟</h3>
+        <p>اتصل بنا مباشرة على <a href="tel:0507219883" style="color: var(--primary-color); font-weight: bold;">0507219883</a> أو عبر <a href="https://wa.me/966507219883" style="color: var(--whatsapp-color); font-weight: bold;">الواتساب</a>.</p>
+        <h3>✔ هل يوجد خصم للكميات الكبيرة؟</h3>
+        <p>نعم، نقدم خصم يصل إلى 30% للطلبات الكبيرة (أكثر من 50 قطعة).</p>
+      </div>
+    </section>
 
+    <!-- لماذا تختارنا -->
+    <section class="section why-us">
+      <h2>⭐ لماذا تختار لمسات للحفلات؟</h2>
+      <div>
+        <h3>🔹 كيف أستأجر؟</h3>
+        <p>اتصل بنا عبر <a href="tel:0507219883" style="color: var(--primary-color); font-weight: bold;">0507219883</a> أو <a href="https://wa.me/966507219883" style="color: var(--whatsapp-color); font-weight: bold;">الواتساب</a>، وسنحدد معك:</p>
+        <ol>
+          <li>نوع الخدمة (كراسي - طاولات - كنب - إلخ).</li>
+          <li>التاريخ والموقع.</li>
+          <li>الكمية المطلوبة.</li>
+          <li>التوصيل والتركيب المجاني.</li>
+        </ol>
+        <h3>🔹 الأسعار:</h3>
+        <ul>
+          <li>كراسي: تبدأ من <strong>5 ريال/قطعة</strong> (خصم 20% للكميات فوق 50 قطعة).</li>
+          <li>طاولات: تبدأ من <strong>20 ريال/طاولة</strong>.</li>
+          <li>كنب: تبدأ من <strong>100 ريال/قطعة</strong>.</li>
+          <li>خصم خاص للحفلات الكبيرة.</li>
+        </ul>
+        <h3>🔹 لماذا نحن؟</h3>
+        <ul>
+          <li>✅ <strong>أسرع توصيل</strong> في الرياض وجدة والدمام (خلال اقل من ساعه).</li>
+          <li>✅ <strong>جودة عالية</strong> مع ضمان عدم وجود عيوب.</li>
+          <li>✅ <strong>أسعار تنافسية</strong> مع خصومات تصل إلى 30%.</li>
+          <li>✅ <strong>خدمة 24/7</strong> ودعم فوري خلال الفعاليات.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+
+
+  <footer>
+    &copy; 2025 مؤسسة لمسات للحفلات لتأجير مستلزمات الحفلات والمناسبات. جميع الحقوق محفوظة.
+    <p>للاستفسارات: <a href="tel:0507219883">0507219883</a> | <a href="https://wa.me/966507219883">واتساب</a></p>
+  </footer>
+
+  <!-- أيقونات تواصل ثابتة -->
+<div class="fixed-contact">
+  <a href="https://wa.me/966507219883" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:0507219883" class="call"><i class="fas fa-phone-alt"></i></a>
+</div>
+
+  <div class="fixed-contact">
+    <a href="https://wa.me/966507219883" target="_blank" class="whatsapp" aria-label="تواصل معنا عبر واتساب">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+    <a href="tel:0507219883" class="call" aria-label="اتصل بنا">
+      <i class="fas fa-phone-alt" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <script>
+    // تحميل الصور بشكل متدرج
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src || img.src;
+              img.onload = function() {
+                this.classList.add('loaded');
+              };
+              observer.unobserve(img);
+            }
+          });
+        }, {
+          rootMargin: '200px 0px'
+        });
+
+        images.forEach(img => {
+          if (!img.classList.contains('loaded')) {
+            imageObserver.observe(img);
+          }
+        });
+      } else {
+        // Fallback للمتصفحات القديمة
+        images.forEach(img => {
+          img.src = img.dataset.src || img.src;
+          img.onload = function() {
+            this.classList.add('loaded');
+          };
+        });
+      }
+      
+      // تحسين أداء الخطوط
+      if (sessionStorage.fontsLoaded) {
+        document.documentElement.classList.add('fonts-loaded');
+      } else {
+        document.fonts.ready.then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+          sessionStorage.fontsLoaded = true;
+        });
+      }
+      
+      // تحسين تجربة التصفح
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+    
+    // تحسين أداء الصور عند التمرير
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      document.querySelectorAll('img[loading="lazy"]:not(.loaded)').forEach(img => {
+        if (img.offsetTop <= scrollPosition) {
+          img.src = img.dataset.src || img.src;
+          img.onload = function() {
+            this.classList.add('loaded');
+          };
+        }
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
   </div>
 </section>    
 </main>
