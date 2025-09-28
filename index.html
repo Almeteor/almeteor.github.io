@@ -517,8 +517,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 </head>
 <body>
-  
-<header>
+
+  <header>
   <div class="logo">حفلات ومناسبات</div>
   <nav>
     <a href="#tables-chairs">تأجير طاولات وكراسي</a>
@@ -533,12 +533,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block; animation: scrollText 40s linear infinite;">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
 
 <style>
+@keyframes scrollText {
+  0% { transform: translateX(-100%); }  /* يبدأ من اليسار خارج الشاشة */
+  100% { transform: translateX(100%); } /* يتحرك لليمين حتى يخرج خارج الشاشة */
+}
+
 /* لإعطاء مساحة للشريط حتى لا يغطي المحتوى */
 body::before {
   content:"";
@@ -546,48 +551,6 @@ body::before {
   height:50px;
 }
 </style>
-
-<!-- مكتبة confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-<script>
-window.onload = function() {
-  const scrollText = document.getElementById('scrollText');
-  let pos = -scrollText.offsetWidth; // البداية من اليسار
-  const speed = 0.5; // أقل = أبطأ
-
-  function moveText() {
-    pos += speed;
-    if (pos > window.innerWidth) {
-      pos = -scrollText.offsetWidth; // يرجع مباشرة بعد ما يخلص
-    }
-    scrollText.style.transform = translateX(${pos}px);
-    requestAnimationFrame(moveText);
-  }
-  moveText();
-
-  // تأثير احتفالي عند دخول الموقع
-  const duration = 3 * 1000;
-  const end = Date.now() + duration;
-  (function frame() {
-    confetti({
-      particleCount: 5,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 }
-    });
-    confetti({
-      particleCount: 5,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 }
-    });
-    if (Date.now() < end) requestAnimationFrame(frame);
-  }());
-};
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   
 <h1>تأجير طاولات وكراسي تأجير مكيفات تأجير سماعات تاجير كنب تاجير مستلزمات الحفلات والمناسبات</h1>
 <div class="contact-buttons" style="text-align: center; margin: 30px 0;">
