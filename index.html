@@ -533,33 +533,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block; animation: scrollText 25s linear infinite;">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block; transform: translateX(-100%);">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
 
 <style>
-@keyframes scrollText {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
 /* لإعطاء مساحة للشريط حتى لا يغطي المحتوى */
 body::before {
   content:"";
   display:block;
   height:50px;
 }
+
+/* تأثير الحركة */
+@keyframes scrollTextAnim {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
 </style>
 
-<!-- تأثير احتفالي عند دخول الموقع -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
+// حركة الشريط أبطأ، وعند النهاية يرجع مباشرة
+const scrollText = document.getElementById('scrollText');
+let pos = -scrollText.offsetWidth;
+const speed = 1; // أقل رقم = أبطأ حركة
+function moveText() {
+  pos += speed;
+  if (pos > window.innerWidth) {
+    pos = -scrollText.offsetWidth; // يرجع مباشرة
+  }
+  scrollText.style.transform = translateX(${pos}px);
+  requestAnimationFrame(moveText);
+}
+moveText();
+
+// تأثير احتفالي عند دخول الموقع
 window.onload = function() {
-  // تساقط سريع للورود/Confetti عند تحميل الصفحة
   var duration = 3 * 1000;
   var end = Date.now() + duration;
-
   (function frame() {
     confetti({
       particleCount: 5,
@@ -573,13 +585,12 @@ window.onload = function() {
       spread: 55,
       origin: { x: 1 }
     });
-
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
+    if (Date.now() < end) requestAnimationFrame(frame);
   }());
 };
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   
 <h1>تأجير طاولات وكراسي تأجير مكيفات تأجير سماعات تاجير كنب تاجير مستلزمات الحفلات والمناسبات</h1>
 <div class="contact-buttons" style="text-align: center; margin: 30px 0;">
