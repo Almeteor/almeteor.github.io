@@ -533,7 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block; transform: translateX(-100%);">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
@@ -542,16 +542,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="celebrationContainer" style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:9999;"></div>
 
 <style>
-/* الشريط يمشي من اليسار لليمين ببطء ويرجع بسرعة مباشرة */
+/* الشريط يمشي من اليمين لليسار مباشرة وببطء */
 @keyframes scrollText {
-  0%   { transform: translateX(-100%); }
-  90%  { transform: translateX(100%); }  /* الذهاب ببطء */
-  100% { transform: translateX(-100%); } /* العودة سريعة */
+  0%   { transform: translateX(100%); }  /* يبدأ من خارج الشاشة جهة اليمين */
+  100% { transform: translateX(-100%); } /* ينتهي جهة اليسار */
 }
 
 #scrollText {
-  animation: scrollText 25s linear infinite;
-  animation-fill-mode: forwards; /* يبدأ مباشرة */
+  animation: scrollText 20s linear infinite; /* يبدأ مباشرة عند تحميل الصفحة */
 }
 
 /* مساحة للشريط */
@@ -578,8 +576,6 @@ body::before {
 </style>
 
 <script>
-// لا حاجة لأي انتظار، الشريط يبدأ مباشرة عند تحميل الصفحة
-
 // توليد رموز الاحتفال عشوائياً
 function createCelebration() {
   const container = document.getElementById('celebrationContainer');
