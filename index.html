@@ -533,7 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block; transform: translateX(-100%);">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
@@ -545,33 +545,30 @@ body::before {
   display:block;
   height:50px;
 }
-
-/* تأثير الحركة */
-@keyframes scrollTextAnim {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
 </style>
 
-<script>
-// حركة الشريط أبطأ، وعند النهاية يرجع مباشرة
-const scrollText = document.getElementById('scrollText');
-let pos = -scrollText.offsetWidth;
-const speed = 1; // أقل رقم = أبطأ حركة
-function moveText() {
-  pos += speed;
-  if (pos > window.innerWidth) {
-    pos = -scrollText.offsetWidth; // يرجع مباشرة
-  }
-  scrollText.style.transform = translateX(${pos}px);
-  requestAnimationFrame(moveText);
-}
-moveText();
+<!-- مكتبة confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-// تأثير احتفالي عند دخول الموقع
+<script>
 window.onload = function() {
-  var duration = 3 * 1000;
-  var end = Date.now() + duration;
+  const scrollText = document.getElementById('scrollText');
+  let pos = -scrollText.offsetWidth; // البداية من اليسار
+  const speed = 0.5; // أقل = أبطأ
+
+  function moveText() {
+    pos += speed;
+    if (pos > window.innerWidth) {
+      pos = -scrollText.offsetWidth; // يرجع مباشرة بعد ما يخلص
+    }
+    scrollText.style.transform = translateX(${pos}px);
+    requestAnimationFrame(moveText);
+  }
+  moveText();
+
+  // تأثير احتفالي عند دخول الموقع
+  const duration = 3 * 1000;
+  const end = Date.now() + duration;
   (function frame() {
     confetti({
       particleCount: 5,
