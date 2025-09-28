@@ -536,71 +536,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="scrollText" style="white-space: nowrap; display: inline-block;">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
-
-  <!-- عنصر البالونات -->
-  <div id="balloonsContainer" style="position:absolute; top:0; left:0; width:100%; height:50px; pointer-events:none; overflow:hidden;"></div>
 </div>
 
+<!-- حركة الاحتفال تنزل من فوق الموقع -->
+<div id="celebrationContainer" style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:9999;"></div>
+
 <style>
-/* حركة الشريط بسرعة أعلى */
+/* الشريط يمشي ببطء ويرجع بسرعة */
 @keyframes scrollText {
   0% { transform: translateX(100%); }
   50% { transform: translateX(-100%); }
+  51% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 
 #scrollText {
-  animation: scrollText 10s linear infinite; /* أسرع من قبل */
+  animation: scrollText 20s linear infinite; /* بطء في الذهاب */
 }
 
-/* لإعطاء مساحة للشريط حتى لا يغطي المحتوى */
+/* مساحة للشريط */
 body::before {
   content:"";
   display:block;
   height:50px;
 }
 
-/* تصميم البالونات */
-.balloon {
+/* تصميم الاحتفال */
+.celebration {
   position: absolute;
-  width: 20px;
+  width: 30px;
   height: 30px;
-  background: red;
-  border-radius: 50% 50% 50% 50%;
-  opacity: 0.8;
-  animation: fall 3s linear forwards;
+  font-size: 24px;
+  opacity: 0.9;
+  animation: fall 4s linear forwards;
 }
 
 @keyframes fall {
-  0% { top: -30px; transform: translateX(0) rotate(0deg); }
-  100% { top: 50px; transform: translateX(30px) rotate(360deg); opacity: 0; }
+  0% { top: -40px; transform: rotate(0deg); opacity:1; }
+  100% { top: 100vh; transform: rotate(360deg); opacity:0; }
 }
 </style>
 
 <script>
-// وظيفة توليد البالونات بشكل عشوائي
-function createBalloon() {
-  const container = document.getElementById('balloonsContainer');
-  const balloon = document.createElement('div');
-  balloon.classList.add('balloon');
+// توليد رموز الاحتفال عشوائياً
+function createCelebration() {
+  const container = document.getElementById('celebrationContainer');
+  const confetti = document.createElement('div');
+  confetti.classList.add('celebration');
   
-  // ألوان عشوائية
-  const colors = ['red','yellow','blue','pink','orange','purple'];
-  balloon.style.background = colors[Math.floor(Math.random()*colors.length)];
+  const symbols = ['🎊','🎈','🎉','✨','💫'];
+  confetti.innerText = symbols[Math.floor(Math.random()*symbols.length)];
   
   // موقع أفقي عشوائي
-  balloon.style.left = Math.random() * 100 + '%';
+  confetti.style.left = Math.random() * 100 + '%';
   
-  container.appendChild(balloon);
+  container.appendChild(confetti);
   
-  // إزالة البالون بعد انتهاء الحركة
+  // إزالة العنصر بعد انتهاء الحركة
   setTimeout(() => {
-    container.removeChild(balloon);
-  }, 3000);
+    container.removeChild(confetti);
+  }, 4000);
 }
 
-// توليد بالونات كل 500ms
-setInterval(createBalloon, 500);
+// توليد الاحتفال كل 400ms
+setInterval(createCelebration, 400);
 </script>
   
 <h1>تأجير طاولات وكراسي تأجير مكيفات تأجير سماعات تاجير كنب تاجير مستلزمات الحفلات والمناسبات</h1>
