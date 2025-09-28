@@ -533,7 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block; transform: translateX(-100%);">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
@@ -544,14 +544,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>
 /* الشريط يمشي من اليسار لليمين ببطء ويرجع بسرعة */
 @keyframes scrollText {
-  0% { transform: translateX(-100%); }   /* البداية من اليسار */
-  90% { transform: translateX(100%); }   /* يتحرك ببطء إلى اليمين */
-  91% { transform: translateX(100%); }   /* لحظة قصيرة قبل الرجوع */
-  100% { transform: translateX(-100%); } /* يرجع بسرعة لليسار */
+  0% { transform: translateX(-100%); }
+  90% { transform: translateX(100%); }
+  91% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 #scrollText {
   animation: scrollText 25s linear infinite;
+  animation-play-state: running;
 }
 
 /* مساحة للشريط */
@@ -578,6 +579,11 @@ body::before {
 </style>
 
 <script>
+// تشغيل الشريط فور تحميل الصفحة بدون تأخير
+window.addEventListener('load', () => {
+  document.getElementById('scrollText').style.animationPlayState = 'running';
+});
+
 // توليد رموز الاحتفال عشوائياً
 function createCelebration() {
   const container = document.getElementById('celebrationContainer');
@@ -587,18 +593,15 @@ function createCelebration() {
   const symbols = ['🎊','🎈','🎉','✨','💫'];
   confetti.innerText = symbols[Math.floor(Math.random()*symbols.length)];
   
-  // موقع أفقي عشوائي
   confetti.style.left = Math.random() * 100 + '%';
   
   container.appendChild(confetti);
   
-  // إزالة العنصر بعد انتهاء الحركة
   setTimeout(() => {
     container.removeChild(confetti);
   }, 4000);
 }
 
-// توليد الاحتفال كل 400ms
 setInterval(createCelebration, 400);
 </script>
   
