@@ -533,15 +533,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block; animation: scrollText 35s linear infinite;">
+  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
+
+  <!-- عنصر البالونات -->
+  <div id="balloonsContainer" style="position:absolute; top:0; left:0; width:100%; height:50px; pointer-events:none; overflow:hidden;"></div>
 </div>
 
 <style>
+/* حركة الشريط بسرعة أعلى */
 @keyframes scrollText {
-  0% { transform: translateX(-100%); }
+  0% { transform: translateX(100%); }
+  50% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+#scrollText {
+  animation: scrollText 10s linear infinite; /* أسرع من قبل */
 }
 
 /* لإعطاء مساحة للشريط حتى لا يغطي المحتوى */
@@ -550,7 +559,49 @@ body::before {
   display:block;
   height:50px;
 }
+
+/* تصميم البالونات */
+.balloon {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: red;
+  border-radius: 50% 50% 50% 50%;
+  opacity: 0.8;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  0% { top: -30px; transform: translateX(0) rotate(0deg); }
+  100% { top: 50px; transform: translateX(30px) rotate(360deg); opacity: 0; }
+}
 </style>
+
+<script>
+// وظيفة توليد البالونات بشكل عشوائي
+function createBalloon() {
+  const container = document.getElementById('balloonsContainer');
+  const balloon = document.createElement('div');
+  balloon.classList.add('balloon');
+  
+  // ألوان عشوائية
+  const colors = ['red','yellow','blue','pink','orange','purple'];
+  balloon.style.background = colors[Math.floor(Math.random()*colors.length)];
+  
+  // موقع أفقي عشوائي
+  balloon.style.left = Math.random() * 100 + '%';
+  
+  container.appendChild(balloon);
+  
+  // إزالة البالون بعد انتهاء الحركة
+  setTimeout(() => {
+    container.removeChild(balloon);
+  }, 3000);
+}
+
+// توليد بالونات كل 500ms
+setInterval(createBalloon, 500);
+</script>
   
 <h1>تأجير طاولات وكراسي تأجير مكيفات تأجير سماعات تاجير كنب تاجير مستلزمات الحفلات والمناسبات</h1>
 <div class="contact-buttons" style="text-align: center; margin: 30px 0;">
