@@ -518,7 +518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </head>
 <body>
 
-  <header>
+ <header>
   <div class="logo">حفلات ومناسبات</div>
   <nav>
     <a href="#tables-chairs">تأجير طاولات وكراسي</a>
@@ -542,16 +542,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="celebrationContainer" style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:9999;"></div>
 
 <style>
-/* الشريط يمشي ببطء ويرجع بسرعة */
+/* الشريط يمشي من اليسار لليمين ببطء ويرجع بسرعة */
 @keyframes scrollText {
-  0% { transform: translateX(100%); }
-  50% { transform: translateX(-100%); }
-  51% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% { transform: translateX(-100%); }   /* البداية من اليسار */
+  90% { transform: translateX(100%); }   /* يتحرك ببطء إلى اليمين */
+  91% { transform: translateX(100%); }   /* لحظة قصيرة قبل الرجوع */
+  100% { transform: translateX(-100%); } /* يرجع بسرعة لليسار */
 }
 
 #scrollText {
-  animation: scrollText 20s linear infinite; /* بطء في الذهاب */
+  animation: scrollText 25s linear infinite;
 }
 
 /* مساحة للشريط */
