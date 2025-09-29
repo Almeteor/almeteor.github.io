@@ -559,18 +559,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .news-ticker {
   white-space: nowrap;
   display: inline-block;
-  padding-left: 100%; /* تغيير من padding-right إلى padding-left */
+  padding-right: 100%; /* يضمن أن النص يبدأ خارج الشاشة */
   animation: scrollText 30s linear infinite;
   will-change: transform; /* تحسين الأداء */
 }
 
-/* الشريط يمشي من اليسار لليمين بشكل مستمر */
+/* الشريط يمشي من اليمين لليسار بشكل مستمر */
 @keyframes scrollText {
   0% {
-    transform: translateX(-100%); /* يبدأ من خارج الشاشة جهة اليسار */
+    transform: translateX(100%); /* يبدأ من خارج الشاشة جهة اليمين */
   }
   100% {
-    transform: translateX(100%); /* ينتهي جهة اليمين */
+    transform: translateX(-100%); /* ينتهي جهة اليسار */
   }
 }
 
