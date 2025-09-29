@@ -544,12 +544,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <style>
 /* الشريط يمشي من اليسار لليمين بشكل مستمر */
 @keyframes scrollText {
-  0%   { transform: translateX(-100%); }  /* يبدأ من اليسار */
+  0%   { transform: translateX(-100%); }  /* يبدأ من خارج الشاشة جهة اليسار */
   100% { transform: translateX(100%); }   /* ينتهي جهة اليمين */
 }
 
 #scrollText {
-  animation: scrollText 40s linear infinite; /* أبطأ من السابق ويستمر بدون توقف */
+  animation: scrollText 40s linear infinite;
+  animation-play-state: running; /* هذا يخلي الحركة تبدأ مباشرة عند تحميل الصفحة */
 }
 
 /* مساحة للشريط */
