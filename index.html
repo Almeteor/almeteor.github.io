@@ -532,32 +532,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <!-- شريط خدمات ثابت تحت الهيدر -->
-<div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
-  <div id="scrollText" style="white-space: nowrap; display: inline-block;">
+<div class="news-ticker-container">
+  <div class="news-ticker" id="scrollText">
     لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
 
 <!-- حركة الاحتفال تنزل من فوق الموقع -->
-<div id="celebrationContainer" style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:9999;"></div>
+<div id="celebrationContainer"></div>
 
 <style>
-/* الشريط يمشي من اليسار لليمين بشكل مستمر */
-@keyframes scrollText {
-  0%   { transform: translateX(-100%); }  /* يبدأ من خارج الشاشة جهة اليسار */
-  100% { transform: translateX(100%); }   /* ينتهي جهة اليمين */
+/* تصميم شريط الأخبار */
+.news-ticker-container {
+  position: relative;
+  width: 100%;
+  background: #006c35;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  overflow: hidden;
+  height: 50px;
+  display: flex;
+  align-items: center;
 }
 
-#scrollText {
-  animation: scrollText 40s linear infinite;
-  animation-play-state: running; /* هذا يخلي الحركة تبدأ مباشرة عند تحميل الصفحة */
+.news-ticker {
+  white-space: nowrap;
+  display: inline-block;
+  padding-right: 100%; /* يضمن أن النص يبدأ خارج الشاشة */
+  animation: scrollText 30s linear infinite;
+  will-change: transform; /* تحسين الأداء */
+}
+
+/* الشريط يمشي من اليمين لليسار بشكل مستمر */
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%); /* يبدأ من خارج الشاشة جهة اليمين */
+  }
+  100% {
+    transform: translateX(-100%); /* ينتهي جهة اليسار */
+  }
 }
 
 /* مساحة للشريط */
-body::before {
-  content:"";
-  display:block;
-  height:50px;
+body {
+  margin-top: 50px; /* بدلاً من استخدام ::before لتجنب مشاكل التحميل */
 }
 
 /* تصميم الاحتفال */
@@ -568,15 +587,45 @@ body::before {
   font-size: 24px;
   opacity: 0.9;
   animation: fall 4s linear forwards;
+  will-change: transform, opacity; /* تحسين الأداء */
 }
 
 @keyframes fall {
-  0% { top: -40px; transform: rotate(0deg); opacity:1; }
-  100% { top: 100vh; transform: rotate(360deg); opacity:0; }
+  0% { 
+    top: -40px; 
+    transform: translateY(0) rotate(0deg); 
+    opacity: 1; 
+  }
+  100% { 
+    top: 100vh; 
+    transform: translateY(0) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+#celebrationContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
 }
 </style>
 
 <script>
+// بدء الشريط فور تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+  // التأكد من أن الشريط يبدأ فوراً
+  const scrollText = document.getElementById('scrollText');
+  scrollText.style.animation = 'scrollText 30s linear infinite';
+  
+  // بدء تأثيرات الاحتفال
+  startCelebration();
+});
+
 // توليد رموز الاحتفال عشوائياً
 function createCelebration() {
   const container = document.getElementById('celebrationContainer');
@@ -584,18 +633,26 @@ function createCelebration() {
   confetti.classList.add('celebration');
   
   const symbols = ['🎊','🎈','🎉','✨','💫'];
-  confetti.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+  confetti.innerText = symbols[Math.floor(Math.random() * symbols.length)];
   
   confetti.style.left = Math.random() * 100 + '%';
   
   container.appendChild(confetti);
   
+  // تنظيف الذاكرة بعد انتهاء الرسوم المتحركة
   setTimeout(() => {
-    container.removeChild(confetti);
+    if (confetti.parentNode === container) {
+      container.removeChild(confetti);
+    }
   }, 4000);
 }
 
-setInterval(createCelebration, 400);
+function startCelebration() {
+  // بدء فوري للاحتفال
+  createCelebration();
+  // استمرار الاحتفال كل 400 مللي ثانية
+  setInterval(createCelebration, 400);
+}
 </script>
   
 <h1>تأجير طاولات وكراسي تأجير مكيفات تأجير سماعات تاجير كنب تاجير مستلزمات الحفلات والمناسبات</h1>
