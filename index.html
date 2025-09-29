@@ -534,25 +534,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- شريط خدمات ثابت تحت الهيدر -->
 <div style="position: relative; width: 100%; background: #006c35; color: #fff; font-size: 18px; font-weight: bold; overflow: hidden; height: 50px; display:flex; align-items:center;">
   <div id="scrollText" style="white-space: nowrap; display: inline-block;">
-    <span>
-      لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..&nbsp;&nbsp;
-    </span>
-    <span>
-      لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..&nbsp;&nbsp;
-    </span>
+    لمسة لتأجير لوازم الحفلات والمناسبات — تأجير كنب — تأجير مكيفات — تأجير جلسات شعبيه ومغربي — تأجير مكبرات صوت — تأجير خيام — تأجير طاولات وكراسي — تأجير شاشات عرض — تأجير كوش وطاولات استقبال — قهوجيين وصبابين..
   </div>
 </div>
+
+<!-- حركة الاحتفال تنزل من فوق الموقع -->
+<div id="celebrationContainer" style="position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; overflow:hidden; z-index:9999;"></div>
 
 <style>
 /* الشريط يمشي من اليسار لليمين بشكل مستمر */
 @keyframes scrollText {
-  0%   { transform: translateX(-50%); }  /* يبدأ من اليسار */
-  100% { transform: translateX(0%); }    /* ينتهي على اليمين */
+  0%   { transform: translateX(-100%); }  /* يبدأ من اليسار */
+  100% { transform: translateX(100%); }   /* ينتهي جهة اليمين */
 }
 
 #scrollText {
-  display: inline-flex;
-  animation: scrollText 40s linear infinite; /* أبطأ من السابق */
+  animation: scrollText 40s linear infinite; /* أبطأ من السابق ويستمر بدون توقف */
 }
 
 /* مساحة للشريط */
