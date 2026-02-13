@@ -4,6 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>لمسات للحفلات وتأجير طاولات وكراسي تأجير جلسات خارجية تأجير كنب قهوجيين وصبابين تأجير لوازم مناسبات وحفلات تأجير كوش</title>
+  .menu-toggle{
+  font-size:28px;
+  cursor:pointer;
+  color:#f4c542;
+}
+
+#sideMenu{
+  height:100%;
+  width:0;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#fff;
+  overflow-x:hidden;
+  transition:0.4s;
+  padding-top:60px;
+  box-shadow:2px 0 10px rgba(0,0,0,0.2);
+  z-index:2000;
+}
+
+#sideMenu a{
+  padding:10px 20px;
+  display:block;
+  font-size:1rem;
+  color:#333;
+  font-weight:600;
+}
+
+#sideMenu a:hover{
+  background:#f4c54222;
+}
+
+.closebtn{
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:30px;
+}
+
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17867861898">
 </script>
@@ -383,6 +422,20 @@ body {
     * {
       margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;
     }
+    .site-logo{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #f4c542;
+  box-shadow:0 0 10px #f4c542aa;
+}
+.site-name{
+  font-weight:900;
+  font-size:1.4rem;
+  margin-right:10px;
+  color:#f4c542;
+}
     body {
       background: linear-gradient(135deg, #f8f7f3cc, #ffffffcc);
       color: #222; line-height: 1.6; min-height: 100vh;
@@ -550,10 +603,12 @@ header nav a:hover {
 <body>
 
 <header>
-  <div class="logo">
-    <img src="https://cdn.phototourl.com/uploads/2026-02-10-4ab88b28-9873-4cbb-b5a0-2418d35fcd88.jpg" alt="لمسات للحفلات" style="height: 50px; vertical-align: middle; margin-left: 10px;">
-    لمسات للحفلات
-  </div>
+ <div class="logo">
+  <img src="https://cdn.phototourl.com/uploads/2026-02-10-4ab88b28-9873-4cbb-b5a0-2418d35fcd88.jpg" 
+       alt="لمسات للحفلات"
+       class="site-logo">
+  <span class="site-name">لمسات للحفلات</span>
+</div>
   <nav>
     <a href="#tables-chairs">تأجير طاولات وكراسي</a>
     <a href="#kanab">تأجير كنب</a>
@@ -564,6 +619,18 @@ header nav a:hover {
     <a href="#dhiyafah">قهوجيين وصبابين</a>
   </nav>
 </header>
+  <div class="menu-toggle" onclick="openMenu()">☰</div>
+
+<nav id="sideMenu">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+  <a href="#tables-chairs">تأجير طاولات وكراسي</a>
+  <a href="#kanab">تأجير كنب</a>
+  <a href="#wedding-stage">تأجير كوشات</a>
+  <a href="#samaat">تأجير مكبرات صوت</a>
+  <a href="#khiyam">تأجير خيام</a>
+  <a href="#jalsat">تأجير جلسات شعبية</a>
+  <a href="#dhiyafah">قهوجيين وصبابين</a>
+</nav>
   
 <h1>لمسات تأجير لوازم الحفلات والمناسبات تأجير طاولات وكراسي تأجير مكيفات تأجير جلسات شعبية تأجير كنب وكل ما تلزمه لحفلتك ومناسبتك</h1>
 <div class="contact-buttons" style="text-align: center; margin: 30px 0;">
@@ -1599,6 +1666,16 @@ header nav a:hover {
   }
 }
 </script>
-  
+
+<script>
+function openMenu() {
+  document.getElementById("sideMenu").style.width = "250px";
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+</script>
+
 </body>
 </html>
